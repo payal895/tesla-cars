@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="style1.css">
+<title>TESLA WORLDS OF CARS</title>
+
+<style>
+
+  body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color:yellow;
+  color: black;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: peachpuff;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: orangered;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+  * {box-sizing: border-box}
+
+/* Full-width input fields */
+  input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #00b7c2;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+    width: 100%;
+  }
+}
+
+  #myDIV {
+  width: 100%;
+  height: 100px;
+  background:  greenyellow;
+  position: relative;
+  font-size: 18px;
+  padding:16px;
+}
+@keyframes mymove {
+  from {top: 0px;}
+  to {top: 200px;}
+}
+  .container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 100%;
+  height:1px;
+  transition: .5s ease;
+}
+
+.container:hover .overlay {
+  bottom: 0;
+  height: 100%;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+  </style>
+</head>
+
+  <body>
+
+
+<div id="myDIV" onclick="myFunction()">WELCOME TO TESLA<BR>                      ***click here..........</div>
+
+<script>
+const div1 = document.getElementById("myDIV");
+
+function myFunction() {
+  div1.style.animation = "mymove 4s 2";
+}
+
+div1.addEventListener("animationstart", myStartFunction);
+div1.addEventListener("animationiteration", myRepeatFunction);
+div1.addEventListener("animationend", myEndFunction);
+
+function myStartFunction() {
+  this.innerHTML = "##click here to show.........##";
+  this.style.backgroundColor = "pink";
+}
+function myRepeatFunction() {
+  this.innerHTML = "$$$welcome to tesla ........$$$";
+  this.style.backgroundColor = "skyblue";
+}
+function myEndFunction() {
+  this.innerHTML = "&&&Tesla the worlds of cars......&&&";
+  this.style.backgroundColor = "purple";
+}
+</script>
+ 
+  <nav class="navbar navbar-expand-lg  py-lg-5 fs-3 navbar bg-info" data-bs-theme="dark"">
+  
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav ">
+      <div class="spinner-grow text-success">
+
+
+      <ul class="navbar-nav" >
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#owner"><B>OWNER</a></B>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#model"><B>MODEL</a></B>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#explore"><B>EXPLORE</a></B>
+        </li>
+      </ul>
+    </div>
+  
+</nav>
+
+<section id="home" class="home" home>
+<form>
+<div class="search-box">
+<h1><marquee ="left">*******Welcome to our Website*******</h1></marquee>
+<p style="font-size:25px"><marquee>**Money may not buy happiness, But I’d rather cry in a Tesla than on a bus**</p></marquee>
+<select type="text" class="search-field">
+<option disabled selected>Select City</option>
+<option>Fremont</option>
+<option>Tilburg</option>
+<option>Lathrop</option>
+<option>Fremont</option>
+
+</select>
+<select type="text" class="search-field">
+<option disabled selected>Country</option>
+<option>United States</option>
+<option>Netherlands</option>
+<option>China</option>
+<option>India</option>
+
+</select>
+<button class="btn"><a href="#cars">Search</a></button>
+</select>
+</div>
+</form>
+</section>
+<body>
+
+  
+  
+  <button class="open-button" onclick="openForm()">ENQUIRY NOW</button>
+  
+  <div class="form-popup" id="myForm">
+    <form action="/action_page.php" class="form-container">
+      <h1>ENQUIRY FORM</h1>
+  
+      <label for="email"><b>FIRST NAME</b></label>
+      <input type="text" placeholder="Enter FIRST NAME" name="email" required>
+      <label for="email"><b>LAST NAME NAME</b></label>
+      <input type="text" placeholder="Enter LAST NAME" name="email" required>
+      <label for="email"><b>MOBILE NO.</b></label>
+      <input type="text" placeholder="Enter MOBILE NO." name="email" required>
+  
+      <label for="psw"><b>EMAIL ID</b></label>
+      <input type="password" placeholder="Enter EMAIL ID" name="psw" required>
+  
+      <button type="submit" class="btn">SUBMIT</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+  </div>
+  
+  <script>
+  function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+  </script>
+  
+<!---------------owner------------>
+
+<section class="service" id="owner">
+    <div class="title">
+        <h1><span style="color:grey;">OWNER</span></h1>
+    </div>
+    <div class="services-row">
+        <div class="services-col">
+        <img src="a2.jpg" alt="">
+        <h2>Elon musk</h2>
+        <script>
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("img").hide();
+  })
+  $("#show").click(function(){
+    $("img").show();
+  });
+});
+</script>
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+    </div>
+    <div class="services-col">
+           <img src="a1.png" alt="">
+            <h2>Strategies</h2>
+          
+        </div>    
+        
+                                
+    </div>
+	</div>
+</section>
+	<!----model--->							
+    <section class="vendor" id="model">
+        <div class="title">
+        <h1 id="cars">MODELS</h1>
+        </div>
+              
+                <figure style="display: grid; column-gap: 40px; grid-template-columns: 1fr 1fr; row-gap: 100px; ">
+                 
+                
+                 <div class="container">
+                  <div class="text" style="color: black"></div>
+  
+  <div class="overlay">
+    <img src="smodel.jpg" alt="Avatar" class="image" height="300px" width="500px">
+   
+  </div>
+</div>
+                 
+       
+			 
+                              <img src="3model.jpg" alt="" height="300px" width="500px" >
+                            
+      </figure>
+
+      
+      <p style=" font-size: 20px; text-align: center; font-weight: bold;">TESLA-S Model  <span style="padding-left: 50rem; font-size: 20px;">TESLA 3 Model <br></span>
+                Power:1,024hp        <span style="padding-left: 51rem;">&nbspPower:950hp<br></span>
+             Price:$114990       <span style="padding-left: 51rem;">&nbsp&nbsp&nbspPrice:$43850<br></span></p>
+
+             
+                  
+        
+      
+
+      <figure style="display: grid; column-gap: 40px; grid-template-columns: 1fr 1fr; row-gap: 100px; ">
+        <div class="container">
+          <div class="text" style="color: black"></div>
+
+<div class="overlay">
+<img src="xmodel.jpg" alt="Avatar" class="image" height="300px" width="500px">
+
+
+
+</div>
+</div>
+
+
+        
+        <img src="ymodel.jpg" alt=""  height="300px" width="500px">
+       
+      </figure>
+      <p style="font-size: 20px; text-align: center; font-weight: bold;">TESLA-X Model  <span style="padding-left: 50rem; font-size: 20px; font-weight: bold;">TESLA-Y Model <br></span>
+        Power:1,025hp        <span style="padding-left: 51rem;">&nbspPower:980hp<br></span>
+     Price:$119990       <span style="padding-left: 51rem;">&nbsp&nbsp&nbspPrice:$53000<br></span></p>
+ 
+
+        
+        </section>
+        <div class="offcanvas offcanvas-start" id="demo">
+          <div class="offcanvas-header">
+            <h1 class="offcanvas-title">CARS......</h1>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+          </div>
+          <div class="offcanvas-body">
+            <p>TESLA MODEL S</p>
+            <p>TESLA MODEL Y</p>
+            <P>TESLA MODEL X</P>
+            <P>TESLA MODEL 3S</P>
+            <button class="btn btn-secondary" type="button">HERE IS IT****</button>
+          </div>
+        </div>
+        
+        <!-- Button to open the offcanvas sidebar -->
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+          show the car details here**
+        </button>
+<!---explore----->
+<section class="venue" id="explore">
+    <div class="title">
+   
+     <div class="EXPLORE" id="EXPLORE">
+                <h1>EXPLORE</h1>
+                <video height="80%" width="47%" controls>
+                    <source src="vvvv.mp4" type="video/mp4">
+                </video>
+
+                <video width="47%" height="50%" controls>
+                    <source src="videoplayback.mp4" type="video/mp4">
+                </video>
+<h2>Tesla car audio</h2>
+                <audio  controls>
+                    <source src="audio2.mp3" type="audio/mp3">
+                </audio>
+                </div>
+<p><b><marquee>**********our achivement accordings to starts begining and shining**********</p></b></marquee>
+<span class="spinner-border spinner-border-sm"></span>
+<span class="spinner-border spinner-border-sm"></span>
+<span class="spinner-border spinner-border-sm"></span>
+<span class="spinner-border spinner-border-sm"></span>
+<span class="spinner-border spinner-border-sm"></span>
+<span class="spinner-border spinner-border-sm"></span>
+<span class="spinner-border spinner-border-sm"></span>
+<span class="spinner-border spinner-border-sm"></span>
+<!-- Blue -->
+
+<div class="progress-bar" style="width:40%;height:20px"></div>
+<div class="progress ">
+  <div class="progress-bar" style="width:10%"></div>
+</div>
+
+<!-- Green -->
+<p><b>2017</p></b>
+<div class="progress-bar" style="width:50%;height:20px"></div>
+<div class="progress">
+  <div class="progress-bar bg-success" style="width:20%"></div>
+</div>
+
+<!-- Turquoise -->
+<p>2018</p>
+<div class="progress-bar" style="width:50%;height:20px"></div>
+<div class="progress">
+  <div class="progress-bar bg-info" style="width:30%"></div>
+</div>
+
+<!-- Orange -->
+<p><b>2019</p></b>
+<div class="progress-bar" style="width:40%;height:20px"></div>
+<div class="progress">
+   <div class="progress-bar bg-warning" style="width:40%"></div>
+</div>
+
+<!-- Red -->
+<p><b>2020</p></b>
+<div class="progress-bar" style="width:40%;height:20px"></div>
+<div class="progress">
+  <div class="progress-bar bg-danger" style="width:50%"></div>
+</div>
+<!--dark grey-->
+<p>2021</p>
+<div class="progress-bar" style="width:40%;height:20px"></div>
+<div class="progress">
+
+</div>
+
+                
+    </div>
+    </section>
+   
+   
+    
+    
+    <!-----about us---->
+    
+    <section class="about" id="about">
+    <div class="about-section" background-color="skyblue;">
+      <h1>OUR TEAM</h1>
+ 
+      <p style="font-size:30px">Teamwork is the secret that makes common people achieve uncommon results</p>
+<div class="spinner-grow text-muted"></div>
+<div class="spinner-grow text-primary"></div>
+<div class="spinner-grow text-success"></div>
+<div class="spinner-grow text-info"></div>
+<div class="spinner-grow text-warning"></div>
+<div class="spinner-grow text-info"></div>
+<div class="spinner-grow text-warning"></div>
+<div class="spinner-grow text-danger"></div>
+<div class="spinner-grow text-secondary"></div>
+<div class="spinner-grow text-dark"></div>
+<div class="spinner-grow text-light"></div>
+    </div>
+        
+    <h1 class="a">Our Team</h1>
+<div class="media border p-3 ">
+  <div class="media-body">
+
+<img src="C:\Users\DELL\project\p.jpg" alt="John Doe" class="ml-3 mt-3 rounded-circle" style="width:130px; height:60 ">
+    <h4>payal <small><i>
+Web Designer<br>
+
+Kumaripayal103@Gmail.Com<br>
+
+Contact:-9315769135</i></small></h4>
+
+    <p>code runner...</p>
+<h1><a href="https://payal895.github.io/my-cv/" class="button">More Information</a></h1>
+  </div>
+  
+</div>
+</div>
+<div class="media border p-3">
+  <img src="C:\Users\DELL\project\t.jpg" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:130px; height=60">
+  <div class="media-body">
+    <h4><b>tannu dhanda<small><br>
+<i>web devloper<br>
+Web Designer<br>
+
+Tannudhanda04@Gmail.Com<br>
+
+Contact:-9034923152</i></small></h4>
+    <p>code Runner...</p></b>
+<h1><a href="https://dhandatannu.github.io/creative-cv/" class="button">More Information</a></h1>
+  </div>
+</div>
+    <div class="row row-cols-1 row-cols-2 g-2" style="max-width: 180rem;">
+      
+         
+     
+        </div>
+      </div>
+    </section>
+      
+    <footer class="footer">
+      <p>Payal & Tannu Dhanda<br>
+      <a href="mailto:hege@example.com">@ Teamwork. All rights reserved.</a></p>
+    </footer>
+    <form action="action_page.php" style="border:1px solid #ccc">
+      <div class="container">
+        <h1>Sign Up</h1>
+        <p><U>Please fill in this form to create an account.</p></div></U>
+        <hr>
+    
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+    
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+    
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+    
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        </label>
+    
+        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+    
+        <div class="clearfix">
+          <button type="button" class="cancelbtn">Login</button>
+          <button type="submit" class="signupbtn">Sign Up</button>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.314243625487!2d77.30931141508164!3d28.590348182434486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4f48ccfdc81%3A0x23b82756bfac9089!2sNational%20Skill%20Training%20Institute%20for%20Women!5e0!3m2!1sen!2sin!4v1675973307574!5m2!1sen!2sin" style="width: 100%;" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </p>
+    </div>
+</div>
+<!--container end-->
+</div>
+        </div>
+      </div>
+    </form>
